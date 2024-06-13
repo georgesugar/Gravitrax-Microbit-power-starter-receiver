@@ -18,7 +18,6 @@ function Launch_All_Balls (Angle: number) {
     return
 }
 radio.onReceivedString(function (receivedString) {
-    opperation = receivedString
     if (receivedString == "all") {
         Launch_All_Balls(90)
         basic.showIcon(IconNames.Happy)
@@ -40,26 +39,11 @@ function reset () {
     Kitronik_Robotics_Board.servoWrite(Kitronik_Robotics_Board.Servos.Servo1, Angle)
     basic.showString("R")
 }
-let opperation = ""
 let Angle = 0
 radio.setGroup(1)
 Angle = 100
 Kitronik_Robotics_Board.allOff()
 Kitronik_Robotics_Board.servoWrite(Kitronik_Robotics_Board.Servos.Servo1, Angle)
-let MyImageOne = images.createImage(`
-    . . . . .
-    . . . . .
-    . . . . #
-    . . . . .
-    . . . . .
-    `)
-let myImageAll = images.createImage(`
-    . . . . #
-    . . . . #
-    . . . . #
-    . . . . #
-    . . . . #
-    `)
 basic.showIcon(IconNames.Yes)
 basic.forever(function () {
 	
